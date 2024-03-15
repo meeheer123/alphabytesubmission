@@ -37,7 +37,7 @@ function Collaborator() {
   return (
     <div>
         <LanguageSelector language={language} onSelect={onSelect}/>
-        {/* <Output /> */}
+        <Output editorRef={editorRef} language={language}/>
       <div>
         <Editor
           height="90vh"
