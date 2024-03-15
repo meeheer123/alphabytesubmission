@@ -4,11 +4,19 @@ import * as Y from "yjs";
 import { WebrtcProvider } from "y-webrtc";
 import { MonacoBinding } from "y-monaco";
 import { executeCode } from '../api';
+import LanguageSelector from './LanguageSelector';
+import Output from './Output';
 
 function Collaborator() {
   const editorRef = useRef(null);
   const [editorContent, setEditorContent] = useState("");
-
+  const [value, setValue] = useState("");
+  const [language, setLanguage] = useState("javascript");
+  
+  const onSelect = (language) => {
+    setLanguage(language);
+    setValue(CODE_SNIPPETS[language]);
+  };
   function handleEditorDidMount(editor, monaco) {
     editorRef.current = editor;
     const doc = new Y.Doc();
@@ -21,13 +29,15 @@ function Collaborator() {
   const handleSaveButtonClick = async () => {
     const content = editorRef.current.getValue();
     setEditorContent(content);
-    const res = await executeCode("javascript",content);
+    const res = await executeCode(language,content);
     console.log(res);
     
   };
 
   return (
     <div>
+        <LanguageSelector language={language} onSelect={onSelect}/>
+        {/* <Output /> */}
       <div>
         <Editor
           height="90vh"
