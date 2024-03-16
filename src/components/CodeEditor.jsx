@@ -23,7 +23,7 @@ export const CodeEditor = () => {
   return (
     <Box>
       <HStack spacing={4}>
-        <Box w="50%">
+        <Box w="50vw">
           <LanguageSelector language={language} onSelect={onSelect} />
           <Editor
             options={{
@@ -31,7 +31,8 @@ export const CodeEditor = () => {
                 enabled: false,
               },
             }}
-            height="75vh"
+            height="60vh"
+            width="50vw"
             theme="vs-dark"
             language={language}
             defaultValue={CODE_SNIPPETS[language]}

@@ -13,9 +13,12 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@monaco-editor/react": "^4.6.0",
+    "axios": "^1.6.8",
     "frame": "^1.0.0-alpha.2",
+    "peerjs": "^1.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "socket.io-client": "^4.7.5",
     "y-monaco": "^0.1.5",
     "y-webrtc": "^10.3.0",
     "yjs": "^13.6.14"

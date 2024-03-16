@@ -50,17 +50,17 @@ function Collaborator() {
   };
 
   return (
-    <div>
+    <div style={{ margin: '30px' }}>
       <LanguageSelector language={language} onSelect={onSelect} provider={provider}/>
-      <Output editorRef={editorRef} language={language}/>
       <div>
         <Editor
-          height="90vh"
-          width="100vw"
+          height="60vh"
+          width="50vw"
           theme="vs-dark"
           onMount={handleEditorDidMount}
           language={language} // Pass language prop to the editor
         />
+        <Output editorRef={editorRef} language={language}/>
       </div>
       <div>
         <button onClick={handleSaveButtonClick}>Save Editor Content</button>

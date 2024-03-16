@@ -1,0 +1,13 @@
+.parent-container {
+    display: flex;
+    justify-content: flex-end; /* Align content to the right */
+    width: 100%;
+  }
+  
+  .video-container {
+    width: 50%; /* Take up half of the screen */
+    border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+    box-sizing: border-box; /* Ensure that padding and border are included in the width */
+    padding: 10px; /* Optional: Add padding for spacing */
+  }
+  
