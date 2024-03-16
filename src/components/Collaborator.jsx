@@ -24,6 +24,7 @@ function Collaborator() {
     const langBinding = doc.getText('language');
     langBinding.delete(0, langBinding.toString().length);
     langBinding.insert(0, language);
+    console.log(langBinding.toString());
   };
 
   function handleEditorDidMount(editor, monaco) {
@@ -35,11 +36,24 @@ function Collaborator() {
     setProvider(newProvider);
 
     // Listen for language changes
-    const langBinding = doc.getText('language');
-    langBinding.observe(event => {
-      const newLanguage = event.changes.delta[0].retain;
-      monaco.editor.setModelLanguage(editorRef.current.getModel(), newLanguage);
-    });
+    // const langBinding = doc.getText('language');
+    
+    // langBinding.observe(event => {
+    //   const newLanguage = event.changes.delta[0].retain;
+    //   console.log(newLanguage);
+    //   monaco.editor.setModelLanguage(editorRef.current.getModel(), newLanguage);
+    // });
+
+    // Listen for language changes
+const langBinding = doc.getText('language');
+langBinding.observe(event => {
+  const newLanguage = event.currentTarget.toString(); // Get the updated language from the Yjs document
+  console.log(newLanguage);
+  setLanguage(newLanguage)
+  monaco.editor.setModelLanguage(editorRef.current.getModel(), newLanguage);
+  editorRef.current.updateOptions({ language: newLanguage });
+});
+
   }
 
   const handleSaveButtonClick = async () => {
