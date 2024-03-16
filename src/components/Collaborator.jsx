@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Editor from "@monaco-editor/react";
 import * as Y from "yjs";
 import { WebrtcProvider } from "y-webrtc";
@@ -22,6 +22,7 @@ function Collaborator() {
     const doc = new Y.Doc();
     const provider = new WebrtcProvider("test-room", doc);
     const type = doc.getText("monaco");
+    console.log(type)
     const binding = new MonacoBinding(type, editorRef.current.getModel(), new Set([editorRef.current]), provider.awareness);
     console.log(provider.awareness);                
   }
